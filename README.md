@@ -65,6 +65,10 @@ class MyModule(
     private val parameterizedModule by imported {
         MyParameterizedModule(datasources, appName)
     }
+    
+    val dynamicConstruction by singleton { Gizmo(dynamic<DataSource>()) }
+    
+    val injectable by injectedSingleton<Widget>()
 }
  
 interface DatasourceModule {
